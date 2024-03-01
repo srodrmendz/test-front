@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# Product Catalog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Product catalog management.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Product Catalog](#product-catalog)
+  - [Table of Contents](#table-of-contents)
+  - [Folder Structure](#folder-structure)
+  - [Components](#components)
+    - [Constants](#constants)
+    - [Hooks](#hooks)
+    - [Models](#models)
+    - [Services](#services)
 
-### `npm start`
+## Folder Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The folder structure of the project is as follows:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+src/
+|-- components/ # Contains React components
+|-- constants/ # Contains constants or configuration files
+|-- hooks/ # Contains custom React hooks
+|-- models/ # Contains data models or interfaces
+|-- services/ # Contains services for interacting with external APIs
+```
 
-### `npm test`
+## Components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This folder contains all React components used in the application. Each component should be placed in its own directory along with its related files (e.g., styles, tests).
 
-### `npm run build`
+### Constants
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Constants or configuration files used in the application can be stored here. These files can contain values such as API endpoints, configuration settings, or environment variables.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Hooks
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Custom React hooks can be defined in this folder. Hooks are reusable functions that allow you to extract and reuse stateful logic in your components.
 
-### `npm run eject`
+### Models
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Data models or interfaces used throughout the application can be defined here. These models help ensure type safety and consistency across different parts of your application.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Services
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This folder contains services responsible for interacting with external APIs or handling other data-related tasks. These services abstract away the details of API calls and data fetching, making them easier to manage and test.

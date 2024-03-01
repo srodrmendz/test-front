@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styles from "./App.styles";
+import ProductList from "./components/ProductList/ProductList";
+import useSearchProducts from "./hooks/useSearchProducts";
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from "@mui/material/Alert";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+    const { data, loading, error } = useSearchProducts();
+
+    if (loading) {
+        return (
+            <div className={styles.root}>
+                <CircularProgress />
+            </div>
+        );
+    }
+
+    if (error) {
+        return <Alert severity="error">{error}</Alert>;
+    }
+
+    return (
+        <div className={styles.root}>
+            <ProductList products={data?.products ?? []} />
+        </div>
+    );
+};
 
 export default App;
