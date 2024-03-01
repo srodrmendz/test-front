@@ -5,10 +5,12 @@ import { searchProducts } from "../services/products";
 /**
  * useSearchProducts
  *
- *
+ * @param {string} name - Product name search.
+ * @param {string} sort - Response sort.
+ * @param {boolean} inStock - Response in stock filter.
  * Hook that fetch products
  */
-const useSearchProducts = () => {
+const useSearchProducts = (name: string, sort: string, inStock: boolean) => {
     // state that handle fetch response
     const [data, setData] = useState<SearchResponse | null>(null);
 
@@ -16,25 +18,32 @@ const useSearchProducts = () => {
     const [loading, setLoading] = useState(false);
 
     // state that handle fetch error
-    const [error, setError] = useState<string | null>(null);
+    const [error, setError] = useState<boolean>(false);
 
     useEffect(() => {
+        // fetch products is called every time that name, in stock and sort change
         const fetchProducts = async () => {
             try {
                 setLoading(true);
 
-                const response = await searchProducts(20, 0);
+                const response = await searchProducts(
+                    name,
+                    sort,
+                    inStock,
+                    20,
+                    0,
+                );
 
                 setData(response);
-            } catch (error) {
-                setError(`fetching products ${error}`);
+            } catch (_) {
+                setError(true);
             } finally {
                 setLoading(false);
             }
         };
 
         fetchProducts();
-    }, []);
+    }, [name, inStock, sort]);
 
     return { data, loading, error };
 };

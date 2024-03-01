@@ -12,6 +12,9 @@ interface Props {
     name: string;
     images: string[];
     description?: string;
+    price: number;
+    qty: number;
+    inStock: boolean;
     handleBuy: (id: string) => void;
 }
 
@@ -22,16 +25,20 @@ interface Props {
  * @param {string} name - Product Name.
  * @param {string[]} images - Product Images.
  * @param {string} description - Product description.
- * @param {function} handleBuy - handleBuy.
+ * @param {number} price - Product price.
+ * @param {number} qty - Product Quantity.
+ * @param {any} handleBuy - handleBuy.
  *
  * Render product details
  */
-
 const ProductCard: React.FC<Props> = ({
     id,
     name,
     images,
     description,
+    price,
+    qty,
+    inStock,
     handleBuy,
 }) => {
     return (
@@ -45,11 +52,24 @@ const ProductCard: React.FC<Props> = ({
                 <Typography gutterBottom variant="caption" component="div">
                     {name}
                 </Typography>
+
                 {description && (
                     <Typography variant="body2" color="text.secondary">
                         {description}
                     </Typography>
                 )}
+
+                <Typography variant="body2" color="text.secondary">
+                    Price: {price / 100}
+                </Typography>
+
+                <Typography variant="body2" color="text.secondary">
+                    Quantity: {qty}
+                </Typography>
+
+                <Typography variant="body2" color="text.secondary">
+                    InStock: {inStock ? " Yes" : "No"}
+                </Typography>
             </CardContent>
             <CardActions>
                 <Button size="small" onClick={() => handleBuy(id)}>

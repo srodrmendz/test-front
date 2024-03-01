@@ -8,7 +8,7 @@ export interface Product {
     images?: string[];
     created_at: string;
     updated_at: string;
-    price: number;
+    price: number; // in cents
     in_stock: boolean;
 }
 

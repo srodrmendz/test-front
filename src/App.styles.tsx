@@ -5,4 +5,7 @@ export default {
         display: "flex",
         padding: "8px",
     }),
+    searchBar: css({
+        padding: "16px 0",
+    }),
 };

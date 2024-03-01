@@ -31,6 +31,9 @@ const ProductList: React.FC<Props> = ({ products }) => {
                         name={product.name}
                         images={product.images ?? []}
                         description={product.description}
+                        price={product.price}
+                        qty={product.qty}
+                        inStock={product.in_stock}
                         handleBuy={handleBuy}
                     />
                 </Grid>
