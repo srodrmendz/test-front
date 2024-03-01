@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./App.styles";
 import ProductList from "./components/ProductList/ProductList";
 import SearchBar from "./components/SearchBar/SearchBar";
-import useSearchProducts from "./hooks/useSearchProducts";
+import { useSearchProducts } from "./hooks/useSearchProducts";
 import CircularProgress from "@mui/material/CircularProgress";
 import Grid from "@mui/material/Grid";
 import Alert from "@mui/material/Alert";
@@ -18,15 +18,15 @@ const App: React.FC = () => {
     // state that handle product sort response
     const [sort, setSort] = useState<string>("asc");
 
-    const changeInStock = (v: boolean) => {
+    const onChangeInStock = (v: boolean) => {
         setInStock(v);
     };
 
-    const changeName = (v: string) => {
+    const onChangeName = (v: string) => {
         setName(v);
     };
 
-    const changeSort = (v: string) => {
+    const onChangeSort = (v: string) => {
         setSort(v);
     };
 
@@ -61,14 +61,14 @@ const App: React.FC = () => {
                         name={name}
                         inStock={inStock}
                         sort={sort}
-                        changeInStock={changeInStock}
-                        changeName={changeName}
-                        changeSort={changeSort}
+                        onChangeInStock={onChangeInStock}
+                        onChangeName={onChangeName}
+                        onChangeSort={onChangeSort}
                     />
                 </Grid>
 
                 <Grid item xs={12}>
-                    {loading && <CircularProgress />}
+                    {loading && <CircularProgress id="loading" />}
 
                     {error && <Alert severity="error">Fetching products</Alert>}
 

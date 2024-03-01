@@ -10,9 +10,9 @@ interface Props {
     name: string;
     sort: string;
     inStock: boolean;
-    changeSort: (v: string) => void;
-    changeName: (v: string) => void;
-    changeInStock: (v: boolean) => void;
+    onChangeSort: (v: string) => void;
+    onChangeName: (v: string) => void;
+    onChangeInStock: (v: boolean) => void;
 }
 
 /**
@@ -21,9 +21,9 @@ interface Props {
  * @param {string} sort - Search sort, posible values are asc and dec.
  * @param {string} name - Search name.
  * @param {string} inStock - In Stock filter.
- * @param {any} changeSort - Change sort value.
- * @param {any} changeName - Change name value.
- * @param {any} changeInStock - Change in stock value.
+ * @param {any} onChangeSort - Change sort value.
+ * @param {any} onChangeName - Change name value.
+ * @param {any} onChangeInStock - Change in stock value.
  *
  * Render products search bar
  */
@@ -31,9 +31,9 @@ const SearchBar: React.FC<Props> = ({
     sort,
     name,
     inStock,
-    changeSort,
-    changeName,
-    changeInStock,
+    onChangeSort,
+    onChangeName,
+    onChangeInStock,
 }) => {
     return (
         <Grid container>
@@ -43,7 +43,7 @@ const SearchBar: React.FC<Props> = ({
                     label="Name"
                     variant="filled"
                     value={name}
-                    onChange={(e) => changeName(e.target.value)}
+                    onChange={(e) => onChangeName(e.target.value)}
                 />
             </Grid>
             <Grid item xs={1}>
@@ -54,7 +54,7 @@ const SearchBar: React.FC<Props> = ({
                                 defaultChecked
                                 value={inStock}
                                 onChange={(e) =>
-                                    changeInStock(e.target.checked)
+                                    onChangeInStock(e.target.checked)
                                 }
                             />
                         }
@@ -63,7 +63,7 @@ const SearchBar: React.FC<Props> = ({
                 </FormGroup>
             </Grid>
             <Grid item xs={2}>
-                <SearchBarSort handleChange={changeSort} sort={sort} />
+                <SearchBarSort handleChange={onChangeSort} sort={sort} />
             </Grid>
         </Grid>
     );

@@ -10,7 +10,11 @@ import { searchProducts } from "../services/products";
  * @param {boolean} inStock - Response in stock filter.
  * Hook that fetch products
  */
-const useSearchProducts = (name: string, sort: string, inStock: boolean) => {
+export const useSearchProducts = (
+    name: string,
+    sort: string,
+    inStock: boolean,
+) => {
     // state that handle fetch response
     const [data, setData] = useState<SearchResponse | null>(null);
 
@@ -47,5 +51,3 @@ const useSearchProducts = (name: string, sort: string, inStock: boolean) => {
 
     return { data, loading, error };
 };
-
-export default useSearchProducts;
