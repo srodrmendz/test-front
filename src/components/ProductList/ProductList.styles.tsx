@@ -1,7 +1,9 @@
 import { css } from "@emotion/css";
 
-export default {
+const style = {
     item: css({
         padding: "4px",
     }),
 };
+
+export default style;

@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
 
-export default {
+const style = {
     root: css({
         display: "flex",
         padding: "8px",
@@ -9,3 +9,5 @@ export default {
         padding: "16px 0",
     }),
 };
+
+export default style;
